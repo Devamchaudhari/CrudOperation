@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width='device-width', initial-scale=1.0" />
+    <title>Crud operation</title>
+  </head>
+  <body>
+    <form action="../html/output.html">
+      <div class="form-wraper">
+        <!-- <div class="photo-upload">
+          <input type="file" id="myFileInput" />
+
+          <div class="img-wraper" style="width: 100%; height: 100%">
+            <img
+              id="imgPreview"
+              src=""
+              alt="Preview"
+              width="50%"
+              height="auto"
+            />
+          </div>
+        </div> -->
+
+        <div class="full-name">
+          <label>full name</label>
+          <input
+            type="text"
+            id="fullname"
+            placeholder="fullname"
+            value=""
+            required
+          />
+          <div class="msg"></div>
+        </div>
+
+        <div class="gender">
+          <label>gender</label><br />
+          <input type="radio" id="male" name="male" />
+          <label for="male">Male</label><br />
+          <input type="radio" id="female" name="female" />
+          <label for="female">female</label><br />
+        </div>
+
+        <div class="company-name">
+          <label>company name</label>
+          <input
+            type="text"
+            id="companyname"
+            placeholder="company name"
+            required
+          />
+        </div>
+
+        <div class="designation">
+          <label>designation</label>
+          <input
+            type="text"
+            id="designation"
+            placeholder="designation"
+            required
+          />
+        </div>
+
+        <div class="salary">
+          <label>salary</label>
+          <input type="number" id="salary" required />
+        </div>
+
+        <div class="city">
+          <label>city</label>
+          <input type="text" id="city" placeholder="city" required />
+        </div>
+
+        <div class="submit-btn">
+          <input
+            type="submit"
+            id="submitbtn"
+            value="Submit"
+            onclick="manageData()"
+            required
+          />
+        </div>
+      </div>
+    </form>
+
+    <script src="../assets/script/index.js"></script>
+  </body>
+</html>
