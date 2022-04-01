@@ -1,0 +1,40 @@
+*,body,html{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(../images/macos-monterey-wwdc-21-stock-dark-mode-5k-6016x6016-5585.jpg);
+    background-position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.out-tab{
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px) saturate(100%) contrast(100%);
+    border-radius: 15px;
+    color: rgba(255,255,255,0.8);
+    width: 92%;
+    margin: 65px auto;
+}
+
+.out-tab td{
+    padding: 15px;
+    font: 15px 'Poppins',sans-serif;
+}
+
+.out-tab a{
+    color: rgba(255,255,255,0.8);;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.out-tab a .fa-trash{
+    padding-right: 15px;
+    font-size:20px;
+}
+.out-tab a .fa-edit{
+    padding-right:15px;
+    font-size:20px;
+}

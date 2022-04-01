@@ -3,10 +3,9 @@
     padding: 0;
 }
 body{
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/macos-monterey-wwdc-21-stock-dark-mode-5k-6016x6016-5585.jpg);
     background-position: fixed;
     background-size: cover;
-
     background-repeat: no-repeat;
 }
 form{
@@ -18,7 +17,7 @@ form{
 .form-wraper{
     background-color: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(30px) saturate(124%) contrast(108%) ;
+    backdrop-filter: blur(12px) saturate(100%) contrast(100%);
     border-radius: 15px;
     color: rgba(255,255,255,0.8);
     width: 50%;
@@ -34,7 +33,7 @@ form{
     font-weight: 300;
     background: transparent;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
     border: 0.5px solid rgba(255,255,255,0.1);
 }
 .form-wraper input::placeholder{
@@ -59,8 +58,15 @@ form{
     text-transform: uppercase;
 }
 
-
 .sub-btn:hover {
-   
-    background-color: rgba(255,255,255,0.2);
+       background-color: rgba(255,255,255,0.2);
+  }
+
+  .msg{
+    font-size: 14px;
+    font-family: 'Poppins',sans-serif;
+    color: #ff2424;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-bottom: 20px;
   }

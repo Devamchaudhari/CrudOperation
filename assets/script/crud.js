@@ -38,7 +38,7 @@ let id = 'no';
 selectedData();
 
 function manageData(event) {
-    event.preventDefault()
+
     document.getElementById('msg').innerHTML = "";
     let name = document.getElementById('name').value.trim();
     let cname = document.getElementById('cname').value.trim();
@@ -47,11 +47,12 @@ function manageData(event) {
     let city = document.getElementById('city').value.trim();
 
     if (name.length == 0 && cname.length == 0 && dname == 0 && salary == 0 && city == 0) {
-        document.getElementById('msg').innerHTML = 'Please enter your name';
-        document.getElementById('cmsg').innerHTML = 'Please enter your company name';
-        document.getElementById('dmsg').innerHTML = 'Please enter your designation';
-        document.getElementById('smsg').innerHTML = 'Please enter your salary';
-        document.getElementById('cimsg').innerHTML = 'Please enter your city name';
+        event.preventDefault()
+        document.getElementById('msg').innerHTML = '*Please enter your name';
+        document.getElementById('cmsg').innerHTML = '*Please enter your company name';
+        document.getElementById('dmsg').innerHTML = '*Please enter your designation';
+        document.getElementById('smsg').innerHTML = '*Please enter your salary';
+        document.getElementById('cimsg').innerHTML = '*Please enter your city name';
     } else {
         if (c != null) {
             const temp = JSON.parse(localStorage.getItem('crud'));
@@ -104,7 +105,7 @@ function selectedData() {
         let html = ' ';
         for (let k in temp) {
             // html = html + `<tr><td>${temp[k].fname}</td><td>${temp[k].comp}</td><td>${temp[k].desig}</td><td>${temp[k].salval}</td><td>${temp[k].cityname}</td> <td> <a href="javascript:void(1)" onclick="deleteData(${k})">Delete</a> &nbsp; <a href="../html/crud.html?id=${k}"  onclick="editData(${k})" >Edit</a></td></tr>`;
-            html = html + `<tr><td>${temp[k].fname}</td><td>${temp[k].comp}</td><td>${temp[k].desig}</td><td>${temp[k].salval}</td><td>${temp[k].cityname}</td> <td> <a href="javascript:void(1)" onclick="deleteData(${k})">Delete</a> &nbsp; <a href="../html/crud.html?id=${k}">Edit</a></td></tr>`;
+            html = html + `<tr><td>${temp[k].fname}</td><td>${temp[k].comp}</td><td>${temp[k].desig}</td><td>${temp[k].salval}</td><td>${temp[k].cityname}</td> <td> <a href="javascript:void(1)" onclick="deleteData(${k})"><i class="fa fa-trash"></i></a> &nbsp; <a href="../html/crud.html?id=${k}"><i class="fa fa-edit"></i></a></td></tr>`;
         }
         document.getElementById('root').innerHTML = html;
 
@@ -131,11 +132,11 @@ function validation() {
 
     if (name.length == 0 && cname.length == 0 && dname == 0 && salary == 0 && city == 0) {
 
-        document.getElementById('msg').innerHTML = 'Please enter your name';
-        document.getElementById('cmsg').innerHTML = 'Please enter your company name';
-        document.getElementById('dmsg').innerHTML = 'Please enter your designation';
-        document.getElementById('smsg').innerHTML = 'Please enter your salary';
-        document.getElementById('cimsg').innerHTML = 'Please enter your city name';
+        document.getElementById('msg').innerHTML = '*Please enter your name';
+        document.getElementById('cmsg').innerHTML = '*Please enter your company name';
+        document.getElementById('dmsg').innerHTML = '*Please enter your designation';
+        document.getElementById('smsg').innerHTML = '*Please enter your salary';
+        document.getElementById('cimsg').innerHTML = '*Please enter your city name';
     }
     return true;
 }
