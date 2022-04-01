@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/style/index.css">
+</head>
+<body>
+    <form action="../html/output.html" method="get" onsubmit="validation()">
+        <!-- <div class="form-wraper">
+            <div class="photo-upload">
+              <input type="file" id="myFileInput" />
+      
+              <div class="img-wraper" style="width: 100%; height: 100%">
+                <img id="imgPreview" src=""  width="50%" height="auto" />
+              </div>
+            </div> -->
+        <div class="form-wraper">
+
+        <input type="text" id="name"  class="input-box" placeholder="first name">
+        <div id="msg"></div>
+        <input type="text" id="cname" class="input-box" placeholder="company name">
+        <div id="cmsg"></div>
+        <input type="text" id="dname" class="input-box" placeholder="designation">
+        <div id="dmsg"></div>
+        <input type="number" id="salary" class="input-box" placeholder="salary">
+        <div id="smsg"></div>
+        <input type="text" id="city"  class="input-box"placeholder="city">
+        <div id="cimsg"></div>
+
+        <input type="submit" value="Submit" class="sub-btn" onclick=
+        'manageData (event) '>
+        
+    </div>
+    </form>
+
+    <script src="../assets/script/crud.js"></script>
+</body>
+</html>

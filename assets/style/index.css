@@ -2,12 +2,65 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-image: url(../images/bg.jpg);
+    background-position: fixed;
+    background-size: cover;
 
+    background-repeat: no-repeat;
+}
 form{
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .form-wraper{
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px) saturate(124%) contrast(108%) ;
+    border-radius: 15px;
+    color: rgba(255,255,255,0.8);
+    width: 50%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
+.form-wraper .input-box{
+    outline: none;
+    padding: 20px;
+    color: white;
+    font: 20px 'Poppins',sans-serif;
+    font-weight: 300;
+    background: transparent;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+}
+.form-wraper input::placeholder{
+    color: white;
+    font-weight: 300;
+}
+
+.sub-btn{
+    display: inline-block;
+    padding: 24px 32px;
+    border: none;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font: 18px 'Poppins',sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+.sub-btn:hover {
+   
+    background-color: rgba(255,255,255,0.2);
+  }
