@@ -18,6 +18,7 @@ var url = window.location.href;
 var url2 = new URL(url);
 var c = url2.searchParams.get("id");
 
+var id = "";
 
 if (c != null) {
     let editdata = JSON.parse(localStorage.getItem('crud'));
@@ -25,7 +26,6 @@ if (c != null) {
 
     document.getElementById('name').value = rowdata['fname'];
     document.getElementById('cname').value = rowdata['comp'];
-    // document.getElementsByName('gender').value = rowdata['gen'];
     var gen = document.getElementsByName('gender');
     var rate_value;
     for (var i = 0; i < gen.length; i++) {
@@ -35,14 +35,21 @@ if (c != null) {
     }
     console.log(rate_value);
     debugger
-    // document.getElementById('checkbox').checked.value = rowdata['desig'];
+    var dname = document.getElementsByName('checkbox-inp');
+    var d_value;
+    for (var i = 0; i < dname.length; i++) {
+        if (dname[i].checked) {
+            d_value = dname[i].value;
+        }
+    }
+
     document.getElementById('salary').value = rowdata['salval'];
     document.getElementById('city').value = rowdata['cityname'];
 } else {
-    let id = 'no';
+    this.id = 'no';
 }
 
-let id = 'no';
+// let id = 'no';
 
 //localStorage.clear();
 selectedData();
@@ -52,12 +59,29 @@ function manageData(event) {
     document.getElementById('msg').innerHTML = "";
     let name = document.getElementById('name').value.trim();
     let cname = document.getElementById('cname').value.trim();
-    let gen = document.getElementsByName('gender').checked;
-    let dname = document.getElementById('checkbox').checked;
+    var rates = document.getElementsByName('gender');
+    console.log(rates);
+    debugger;
+    var rate_value;
+    for (var i = 0; i < rates.length; i++) {
+        if (rates[i].checked) {
+            rate_value = rates[i].value;
+        }
+    }
+    let gender = rate_value;
+
+    var dname = document.getElementsByClassName('checkbox-input');
+    var d_value = new Array();
+    for (var i = 0; i < dname.length; i++) {
+        if (dname[i].checked) {
+            d_value.push(dname[i].value);
+        }
+    }
+    let designation = d_value.join(",");
     let salary = document.getElementById('salary').value.trim();
     let city = document.getElementById('city').value.trim();
 
-    if (name.length == 0 && cname.length == 0 && gen == ' ' && salary.length == 0 && city.length == 0) {
+    if (name.length == 0 && cname.length == 0 && gen == ' ' && dname == ' ' && salary.length == 0 && city.length == 0) {
         event.preventDefault()
         document.getElementById('msg').innerHTML = '*Please enter your name';
         document.getElementById('cmsg').innerHTML = '*Please enter your company name';
@@ -72,7 +96,7 @@ function manageData(event) {
             temp[c]['fname'] = name;
             temp[c]['comp'] = cname;
             temp[c]['gen'] = gender;
-            // temp[c]['desig'] = dname;
+            temp[c]['desig'] = designation;
             temp[c]['salval'] = salary;
             temp[c]['cityname'] = city;
             localStorage.setItem('crud', JSON.stringify(temp));
@@ -88,7 +112,7 @@ function manageData(event) {
                 fname: name,
                 comp: cname,
                 gen: gender,
-                // desig: dname,
+                desig: designation,
                 salval: salary,
                 cityname: city
             }
@@ -150,7 +174,7 @@ function validation() {
     let salary = document.getElementById('salary').value.trim();
     let city = document.getElementById('city').value.trim();
 
-    if (name.length == 0 && cname.length == 0 && (genm == ' ' || genf == ' ') && salary.length == 0 && city.length == 0) {
+    if (name.length == 0 && cname.length == 0 && (genm == ' ' || genf == ' ') && dname == ' ' && salary.length == 0 && city.length == 0) {
         console.log('condition');
         document.getElementById('msg').innerHTML = '*Please enter your name';
         document.getElementById('cmsg').innerHTML = '*Please enter your company name';
