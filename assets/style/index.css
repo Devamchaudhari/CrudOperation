@@ -61,6 +61,61 @@ form{
 .sub-btn:hover {
        background-color: rgba(255,255,255,0.2);
   }
+  .checkbox-wraper{
+      display: block;
+      border:1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+  }
+  .check-label{
+      font: 20px 'Poppins',Arial,sans-serif;
+  }
+  input[type="checkbox"]{
+    width: 30px;
+    height: 20px;
+    border: none;
+    outline: none;
+    margin-right: 20px;
+  }
+
+  
+  .radio-wraper{
+     border:1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+  }
+  .radio-label{
+    font: 20px 'Poppins',Arial,sans-serif;
+  }
+  .radio-btn{
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    margin-right: 20px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   .msg{
     font-size: 14px;

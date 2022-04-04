@@ -25,7 +25,17 @@ if (c != null) {
 
     document.getElementById('name').value = rowdata['fname'];
     document.getElementById('cname').value = rowdata['comp'];
-    document.getElementById('dname').value = rowdata['desig'];
+    // document.getElementsByName('gender').value = rowdata['gen'];
+    var gen = document.getElementsByName('gender');
+    var rate_value;
+    for (var i = 0; i < gen.length; i++) {
+        if (gen[i].checked) {
+            rate_value = gen[i].value;
+        }
+    }
+    console.log(rate_value);
+    debugger
+    // document.getElementById('checkbox').checked.value = rowdata['desig'];
     document.getElementById('salary').value = rowdata['salval'];
     document.getElementById('city').value = rowdata['cityname'];
 } else {
@@ -38,19 +48,21 @@ let id = 'no';
 selectedData();
 
 function manageData(event) {
-
+    debugger
     document.getElementById('msg').innerHTML = "";
     let name = document.getElementById('name').value.trim();
     let cname = document.getElementById('cname').value.trim();
-    let dname = document.getElementById('dname').value.trim();
+    let gen = document.getElementsByName('gender').checked;
+    let dname = document.getElementById('checkbox').checked;
     let salary = document.getElementById('salary').value.trim();
     let city = document.getElementById('city').value.trim();
 
-    if (name.length == 0 && cname.length == 0 && dname == 0 && salary == 0 && city == 0) {
+    if (name.length == 0 && cname.length == 0 && gen == ' ' && salary.length == 0 && city.length == 0) {
         event.preventDefault()
         document.getElementById('msg').innerHTML = '*Please enter your name';
         document.getElementById('cmsg').innerHTML = '*Please enter your company name';
-        document.getElementById('dmsg').innerHTML = '*Please enter your designation';
+        document.getElementById('gmsg').innerHTML = '*Please select gender';
+        document.getElementById('dmsg').innerHTML = '*Please select your designation';
         document.getElementById('smsg').innerHTML = '*Please enter your salary';
         document.getElementById('cimsg').innerHTML = '*Please enter your city name';
     } else {
@@ -59,11 +71,12 @@ function manageData(event) {
             // var data = temp[c];
             temp[c]['fname'] = name;
             temp[c]['comp'] = cname;
-            temp[c]['desig'] = dname;
+            temp[c]['gen'] = gender;
+            // temp[c]['desig'] = dname;
             temp[c]['salval'] = salary;
             temp[c]['cityname'] = city;
             localStorage.setItem('crud', JSON.stringify(temp));
-            console.log(data);
+            console.log(temp);
             debugger
             // localStorage.setItem('crud', JSON.stringify(data));
             console.log(c);
@@ -74,7 +87,8 @@ function manageData(event) {
             const formdata = {
                 fname: name,
                 comp: cname,
-                desig: dname,
+                gen: gender,
+                // desig: dname,
                 salval: salary,
                 cityname: city
             }
@@ -105,7 +119,7 @@ function selectedData() {
         let html = ' ';
         for (let k in temp) {
             // html = html + `<tr><td>${temp[k].fname}</td><td>${temp[k].comp}</td><td>${temp[k].desig}</td><td>${temp[k].salval}</td><td>${temp[k].cityname}</td> <td> <a href="javascript:void(1)" onclick="deleteData(${k})">Delete</a> &nbsp; <a href="../html/crud.html?id=${k}"  onclick="editData(${k})" >Edit</a></td></tr>`;
-            html = html + `<tr><td>${temp[k].fname}</td><td>${temp[k].comp}</td><td>${temp[k].desig}</td><td>${temp[k].salval}</td><td>${temp[k].cityname}</td> <td> <a href="javascript:void(1)" onclick="deleteData(${k})"><i class="fa fa-trash"></i></a> &nbsp; <a href="../html/crud.html?id=${k}"><i class="fa fa-edit"></i></a></td></tr>`;
+            html = html + `<tr><td>${temp[k].fname}</td><td>${temp[k].gen}</td><td>${temp[k].comp}</td><td>${temp[k].desig}</td><td>${temp[k].salval}</td><td>${temp[k].cityname}</td> <td> <a href="javascript:void(1)" onclick="deleteData(${k})"><i class="fa fa-trash"></i></a> &nbsp; <a href="../html/crud.html?id=${k}"><i class="fa fa-edit"></i></a></td></tr>`;
         }
         document.getElementById('root').innerHTML = html;
 
@@ -124,19 +138,26 @@ function validation() {
 
     console.log("validation");
     debugger
+
+    document.getElementById('msg').innerHTML = "";
     let name = document.getElementById('name').value.trim();
     let cname = document.getElementById('cname').value.trim();
-    let dname = document.getElementById('dname').value.trim();
+    let genm = document.getElementById('genderm').checked;
+    let genf = document.getElementById('genderf').checked;
+    console.log(genf, "gender", genm);
+    debugger
+    let dname = document.getElementById('checkbox').checked;
     let salary = document.getElementById('salary').value.trim();
     let city = document.getElementById('city').value.trim();
 
-    if (name.length == 0 && cname.length == 0 && dname == 0 && salary == 0 && city == 0) {
-
+    if (name.length == 0 && cname.length == 0 && (genm == ' ' || genf == ' ') && salary.length == 0 && city.length == 0) {
+        console.log('condition');
         document.getElementById('msg').innerHTML = '*Please enter your name';
         document.getElementById('cmsg').innerHTML = '*Please enter your company name';
-        document.getElementById('dmsg').innerHTML = '*Please enter your designation';
+        document.getElementById('gmsg').innerHTML = '*Please select gender';
+        document.getElementById('dmsg').innerHTML = '*Please select your designation';
         document.getElementById('smsg').innerHTML = '*Please enter your salary';
         document.getElementById('cimsg').innerHTML = '*Please enter your city name';
     }
-    return true;
+
 }

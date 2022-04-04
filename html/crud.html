@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/style/index.css">
 </head>
 <body>
-    <form action="../html/output.html" method="get" onsubmit="validation()">
+    <form action="../html/output.html" method="get" onsubmit="validation(event)">
         <!-- <div class="form-wraper">
             <div class="photo-upload">
               <input type="file" id="myFileInput" />
@@ -19,15 +19,35 @@
             </div> -->
         <div class="form-wraper">
 
-        <input type="text" id="name"  class="input-box" placeholder="First name">
+        <input type="text" id="name"  class="input-box" placeholder="First name" > 
         <div id="msg" class="msg"></div>
-        <input type="text" id="cname" class="input-box" placeholder="Company name">
+        <input type="text" id="cname" class="input-box" placeholder="Company name" >
         <div id="cmsg" class="msg"></div>
-        <input type="text" id="dname" class="input-box" placeholder="Designation">
-        <div id="dmsg" class="msg"></div>
-        <input type="number" id="salary" class="input-box" placeholder="Salary">
+        <div  class="checkbox-wraper">
+        <label class="check-label" id="checkbox"> Designer
+        <input type="checkbox" value="Designer" class="checkbox-input">
+      </label>
+      <label class="check-label" id="checkbox"> Frontend Developer
+        <input type="checkbox" value="Frontend Developer" class="checkbox-input">
+      </label>
+      <label class="check-label" id="checkbox"> Backend developer
+        <input type="checkbox" value="Backend developer" class="checkbox-input">
+      </label>
+      <div id="dmsg" class="msg"></div>
+    </div>
+        
+        <div class="radio-wraper"> 
+          <label class="radio-label"> Male
+          <input type="radio" value="male" id="genderm" name="gender" class="radio-btn" >
+        </label>
+        <label class="radio-label" > Female
+          <input type="radio" value="female"  id="genderf" name="gender" class="radio-btn" >
+        </label>
+        <div id="gmsg" class="msg"></div>
+        </div>
+        <input type="number" id="salary" class="input-box" placeholder="Salary" >
         <div id="smsg" class="msg"></div>
-        <input type="text" id="city"  class="input-box"placeholder="City">
+        <input type="text" id="city"  class="input-box"placeholder="City" >
         <div id="cimsg" class="msg"></div>
 
         <input type="submit" value="Submit" class="sub-btn" onclick=
