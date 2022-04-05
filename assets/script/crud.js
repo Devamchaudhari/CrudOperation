@@ -18,7 +18,7 @@ var url = window.location.href;
 var url2 = new URL(url);
 var c = url2.searchParams.get("id");
 
-var id = "";
+var id = ' ';
 
 if (c != null) {
     let editdata = JSON.parse(localStorage.getItem('crud'));
@@ -60,8 +60,7 @@ function manageData(event) {
     let name = document.getElementById('name').value.trim();
     let cname = document.getElementById('cname').value.trim();
     var rates = document.getElementsByName('gender');
-    console.log(rates);
-    debugger;
+
     var rate_value;
     for (var i = 0; i < rates.length; i++) {
         if (rates[i].checked) {
@@ -78,17 +77,25 @@ function manageData(event) {
         }
     }
     let designation = d_value.join(",");
+    console.log(designation);
+    debugger
     let salary = document.getElementById('salary').value.trim();
-    let city = document.getElementById('city').value.trim();
+    let city = document.getElementById('city-name').value;
 
-    if (name.length == 0 && cname.length == 0 && gen == ' ' && dname == ' ' && salary.length == 0 && city.length == 0) {
+
+    if ((name == "" && cname == "" && gender == undefined && designation.length == 0 && salary == "" && city == '-1') || (name == "" || cname == "" || gender == undefined || designation.length == 0 || salary == "" || city == '-1')) {
         event.preventDefault()
+        debugger
         document.getElementById('msg').innerHTML = '*Please enter your name';
         document.getElementById('cmsg').innerHTML = '*Please enter your company name';
         document.getElementById('gmsg').innerHTML = '*Please select gender';
         document.getElementById('dmsg').innerHTML = '*Please select your designation';
         document.getElementById('smsg').innerHTML = '*Please enter your salary';
         document.getElementById('cimsg').innerHTML = '*Please enter your city name';
+
+        console.log("No Enter Value");
+
+        debugger;
     } else {
         if (c != null) {
             const temp = JSON.parse(localStorage.getItem('crud'));
@@ -170,11 +177,16 @@ function validation() {
     let genf = document.getElementById('genderf').checked;
     console.log(genf, "gender", genm);
     debugger
-    let dname = document.getElementById('checkbox').checked;
+    var ds = document.getElementsById('desig').checked;
+    var frontd = document.getElementsById('fd').checked;
+    var backd = document.getElementsById('bd').checked;
+    console.log(desig, frontd, backd, "dname");
+    debugger
     let salary = document.getElementById('salary').value.trim();
-    let city = document.getElementById('city').value.trim();
-
-    if (name.length == 0 && cname.length == 0 && (genm == ' ' || genf == ' ') && dname == ' ' && salary.length == 0 && city.length == 0) {
+    let city = document.getElementById('city-name').value;
+    console.log(city);
+    debugger
+    if (name == ' ' && cname == ' ' && (genm == ' ' || genf == ' ') && (ds == ' ' || frontd == ' ' || backd == ' ') && salary == 0 && city == -1) {
         console.log('condition');
         document.getElementById('msg').innerHTML = '*Please enter your name';
         document.getElementById('cmsg').innerHTML = '*Please enter your company name';
@@ -182,6 +194,7 @@ function validation() {
         document.getElementById('dmsg').innerHTML = '*Please select your designation';
         document.getElementById('smsg').innerHTML = '*Please enter your salary';
         document.getElementById('cimsg').innerHTML = '*Please enter your city name';
+        return false
     }
 
 }

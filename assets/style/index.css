@@ -9,7 +9,7 @@ body{
     background-repeat: no-repeat;
 }
 form{
-    padding-top: 100px;
+    padding: 100px 0px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -36,6 +36,39 @@ form{
     margin-bottom: 2px;
     border: 0.5px solid rgba(255,255,255,0.1);
 }
+.form-wraper .input-box:focus{
+    outline: none;
+    color: white;
+    font: 20px 'Poppins',sans-serif;
+    font-weight: 300;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin-bottom: 2px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+}
+.form-wraper .select-box{
+    outline: none;
+    padding: 20px;
+    color: white;
+    font: 20px 'Poppins',sans-serif;
+    font-weight: 300;
+    background: transparent;
+    border-radius: 10px;
+    margin-bottom: 2px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+}
+
+.select-box:focus{
+    outline: none;
+    color: white;
+    font: 20px 'Poppins',sans-serif;
+    font-weight: 300;
+    background-color: rgb(52 10 131);
+    border-radius: 10px;
+    margin-bottom: 2px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+}
+
 .form-wraper input::placeholder{
     color: white;
     font-weight: 300;

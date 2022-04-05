@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="../assets/style/index.css">
 </head>
 <body>
-    <form action="../html/output.html" method="get" onsubmit="validation(event)">
+    <form action="../html/output.html" method="get" onsubmit="validation()">
         <!-- <div class="form-wraper">
             <div class="photo-upload">
               <input type="file" id="myFileInput" />
       
               <div class="img-wraper" style="width: 100%; height: 100%">
-                <img id="imgPreview" src=""  width="50%" height="auto" />
+                <img id="imgPreview" src=""  width="50%"  height="auto" />
               </div>
             </div> -->
         <div class="form-wraper">
@@ -25,13 +25,13 @@
         <div id="cmsg" class="msg"></div>
         <div  class="checkbox-wraper">
         <label class="check-label" id="checkbox" > Designer
-        <input type="checkbox" value="Designer" name="checkbox-inp" class="checkbox-input">
+        <input type="checkbox" value="Designer"  id ="ds"name="checkbox-inp" class="checkbox-input">
       </label>
       <label class="check-label" id="checkbox"> Frontend Developer
-        <input type="checkbox" value="Frontend Developer" name="checkbox-inp" class="checkbox-input">
+        <input type="checkbox" value="Frontend Developer" id ="fd"name="checkbox-inp" class="checkbox-input">
       </label>
       <label class="check-label" id="checkbox"> Backend developer
-        <input type="checkbox" value="Backend developer" name="checkbox-inp" class="checkbox-input">
+        <input type="checkbox" value="Backend developer" id ="bd"name="checkbox-inp" class="checkbox-input">
       </label>
       <div id="dmsg" class="msg"></div>
     </div>
@@ -47,7 +47,13 @@
         </div>
         <input type="number" id="salary" class="input-box" placeholder="Salary" >
         <div id="smsg" class="msg"></div>
-        <input type="text" id="city"  class="input-box"placeholder="City" >
+        <select name="city" id="city-name" class="select-box" required>
+          <option value = "-1">select city</option>
+          <option value="ahmedabad">Ahmedabad</option>
+          <option value="surat">Surat</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="delhi">Delhi</option>
+        </select>
         <div id="cimsg" class="msg"></div>
 
         <input type="submit" value="Submit" class="sub-btn" onclick=
